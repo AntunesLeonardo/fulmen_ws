@@ -1,1 +1,32 @@
-/home/antunes/fulmen_ws/build/fulmen_description/urdf/config.urdf.xacro
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="base_link_name" value="base_link" />
+    <xacro:property name="left_wheel_link_name" value="left_wheel_link" />
+    <xacro:property name="right_wheel_link_name" value="right_wheel_link_name" />
+    <xacro:property name="caster_wheel_link_name" value="caster_wheel_link_name" />
+    <xacro:property name="lidar_link_name" value="lidar_link_name" />
+
+    <xacro:property name="base_joint_name" value="base_joint" />
+    <xacro:property name="left_wheel_joint_name" value="left_wheel_base_joint" />
+    <xacro:property name="right_wheel_joint_name" value="right_wheel_base_joint" />
+    <xacro:property name="caster_wheel_joint_name" value="caster_wheel_base_joint" />
+    <xacro:property name="lidar_joint_name" value="lidar_base_joint" />
+
+    <xacro:property name="base_length" value="0.6" />
+    <xacro:property name="base_width" value="0.4" />
+    <xacro:property name="base_height" value="0.2" />
+    <xacro:property name="base_mass" value="1.5" />
+
+    <xacro:property name="side_wheel_radius" value="0.1" />
+    <xacro:property name="side_wheel_length" value="0.05" />
+    <xacro:property name="side_wheel_mass" value="0.5" />
+
+    <xacro:property name="caster_wheel_radius" value="0.05" />
+    <xacro:property name="caster_wheel_mass" value="0.0" />
+
+    <xacro:property name="lidar_radius" value="0.1" />
+    <xacro:property name="lidar_length" value="0.05" />
+    <xacro:property name="lidar_mass" value="0.1" />
+
+</robot>
