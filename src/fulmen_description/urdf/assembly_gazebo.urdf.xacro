@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<robot name="Fulmen" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include
+        filename="$(find fulmen_description)/urdf/robot.urdf.xacro"
+    />
+    <xacro:include
+        filename="$(find fulmen_description)/urdf/control_gazebo.urdf.xacro"
+    />
+
+    <gazebo reference="${caster_wheel_link_name}">
+        <mu1 value="0.1" />
+        <mu2 value="0.1" />
+    </gazebo>
+
+    <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>$(find fulmen_bringup)/config/controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+</robot>
