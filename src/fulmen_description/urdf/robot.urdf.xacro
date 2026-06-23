@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include
+        filename="$(find fulmen_description)/urdf/config.urdf.xacro"
+    />
+
+    <material name="grey">
+        <color rgba="0.5 0.5 0.5 1.0" />
+    </material>
+
+    <material name="red">
+        <color rgba="0.7 0.1 0.1 1.0" />
+    </material>
+
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0" />
+    </material>
+
+    <!-- Base -->
+
+    <link name="base_footprint" />
+    <link name="${base_link_name}">
+        <visual>
+            <geometry>
+                <box size="${base_length} ${base_width} ${base_height}" />
+            </geometry>
+            <origin xyz="0 0 ${base_height/2}" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link>
+    <joint name="${base_joint_name}" type="fixed">
+        <parent link="base_footprint" />
+        <child link="${base_link_name}" />
+        <origin xyz="0 0 ${side_wheel_radius}" rpy="0 0 0" />
+    </joint>
+
+    <!-- left wheel -->
+
+    <link name="${left_wheel_link_name}">
+        <visual>
+            <geometry>
+                <cylinder radius="${side_wheel_radius}" length="${side_wheel_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 0" />
+            <material name="white" />
+        </visual>
+    </link>
+    <joint name="${left_wheel_joint_name}" type="continuous">
+        <parent link="${base_link_name}" />
+        <child link="${left_wheel_link_name}" />
+        <origin xyz="${-base_length/4} ${(base_width+side_wheel_length)/2} 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <!-- right wheel -->
+
+    <link name="${right_wheel_link_name}">
+        <visual>
+            <geometry>
+                <cylinder radius="${side_wheel_radius}" length="${side_wheel_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="${-pi/2} 0 0" />
+            <material name="white" />
+        </visual>
+    </link>
+    <joint name="${right_wheel_joint_name}" type="continuous">
+        <parent link="${base_link_name}" />
+        <child link="${right_wheel_link_name}" />
+        <origin xyz="${-base_length/4} ${-(base_width+side_wheel_length)/2} 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <!-- caster wheel -->
+
+    <link name="${caster_wheel_link_name}">
+        <visual>
+            <geometry>
+                <sphere radius="${caster_wheel_radius}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="white" />
+        </visual>
+    </link>
+    <joint name="${caster_wheel_joint_name}" type="fixed">
+        <parent link="${base_link_name}" />
+        <child link="${caster_wheel_link_name}" />
+        <origin xyz="${base_length/4} 0 ${-caster_wheel_radius}" rpy="0 0 0" />
+    </joint>
+
+    <!-- lidar -->
+
+    <link name="${lidar_link_name}">
+        <visual>
+            <geometry>
+                <cylinder radius="${lidar_radius}" length="${lidar_length}" />
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <material name="red" />
+        </visual>
+    </link>
+    <joint name="${lidar_joint_name}" type="fixed">
+        <parent link="${base_link_name}" />
+        <child link="${lidar_link_name}" />
+        <origin xyz="0 0 ${base_height+(lidar_length/2)}" rpy="0 0 0" />
+    </joint>
+
+</robot>
