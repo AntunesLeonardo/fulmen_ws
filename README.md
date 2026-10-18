@@ -4,7 +4,7 @@ Fulmen is supposed to be a begginer friendly ROS2 project, to guide on how to be
 
 ## To do: general
 
-- [ ] Update packages setups, descriptions and dependencies.
+- [x] Update packages setups, descriptions and dependencies.
 
 ### To do: simulation on Gazebo
 
