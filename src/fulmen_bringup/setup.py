@@ -17,8 +17,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='leonardo-augusto-antunes',
-    maintainer_email='antunes.leonardo.a@gmail.com',
+    maintainer='AntunesLeonardo',
+    maintainer_email='leonardo.antunes.segment155@passinbox.com',
     description='TODO: Package description',
     license='TODO: License declaration',
     extras_require={
